@@ -127,7 +127,7 @@ abstract class AbstractCache implements CacheInterface
         $result = [];
 
         foreach ($this->cache as $object) {
-            if ($object['dirname'] !== $dirname) {
+            if (!is_array($object) || $object['dirname'] !== $dirname) {
                 continue;
             }
 
